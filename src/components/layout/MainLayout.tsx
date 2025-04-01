@@ -1,22 +1,43 @@
 
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
-import { createElement } from 'react';
+import { Layout, Menu, MenuProps } from 'antd';
+import { Children, createElement } from 'react';
 const { Header, Content, Footer, Sider } = Layout;
+import siteLogo from '../../assets/images/logo100.png';
+const items: MenuProps['items'] = [
+    
+    {
+        key: 'hareKrishna1',
+        label: 'Dashboard'
+    },
+    {
+        key: 'hareKrishna2',
+        label: 'Profile'
+    },
+    {
+        key: 'hareKrishna3',
+        label: 'User Management',
+        children: [
+            {
+                key: 'hareKrishna31',
+                label: 'Create Admin'
+            },
+            {
+                key: 'hareKrishna32',
+                label: 'Create User'
+            },
+        ]
+    },
 
-const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
-    (icon, index) => ({
-      key: String(index + 1),
-      icon: createElement(icon),
-      label: `nav ${index + 1}`,
-    }),
-  );
+
+
+];
 
   
 
 const MainLayout = () => {
   return (
-    <Layout>
+    <Layout style={{height:'100vh'}}>
       <Sider
         breakpoint="lg"
         collapsedWidth="0"
@@ -27,7 +48,9 @@ const MainLayout = () => {
           console.log(collapsed, type);
         }}
       >
-        <div className="demo-logo-vertical" />
+        <div style={{display: 'flex', justifyContent: 'center', padding:'16px 0 6px 0'}}> 
+            <img style={{width: '80px'}} src={siteLogo} alt="University Manager Logo" />
+        </div>
         <Menu
           theme="dark"
           mode="inline"
@@ -48,7 +71,7 @@ const MainLayout = () => {
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          University Manager ©{new Date().getFullYear()} Created by Developer Shourav
         </Footer>
       </Layout>
     </Layout>
