@@ -6,7 +6,6 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import CreateStudent from "../pages/admin/CreateStudent";
-import AdminLayout from "../components/layout/AdminLayout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,10 +23,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: <App />,
     children: [
       {
-        path: "dashboard",
+        index: true,
+        element: <AdminDashboard />,
+      },
+      {
+        path: 'dashboard',
         element: <AdminDashboard />,
       },
       {
