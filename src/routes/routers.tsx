@@ -4,6 +4,9 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import CreateStudent from "../pages/admin/CreateStudent";
+import AdminLayout from "../components/layout/AdminLayout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,15 +24,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <App />,
+    element: <AdminLayout />,
     children: [
       {
-        path: "about",
-        element: <About />,
+        path: "dashboard",
+        element: <AdminDashboard />,
       },
       {
-        path: "contact",
-        element: <Contact />,
+        path: "create-student",
+        element: <CreateStudent />,
       },
     ],
   },
