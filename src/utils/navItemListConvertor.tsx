@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { TNavItem, TRouteAndNavItemList } from "../types/types";
+import { TNavItem, TRouteAndNavItemList } from "../types";
 
 const navItemListConvertor = (rawList: TRouteAndNavItemList[], rootPath: string) => {
 

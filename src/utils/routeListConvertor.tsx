@@ -1,4 +1,4 @@
-import { TRoute, TRouteAndNavItemList } from "../types/types";
+import { TRoute, TRouteAndNavItemList } from "../types/routeNavigationTypes";
 
 const routeListConvertor = (rawList: TRouteAndNavItemList[]) => {
 
