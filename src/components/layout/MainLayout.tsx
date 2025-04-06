@@ -1,37 +1,11 @@
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
 import { Layout, Menu, MenuProps } from "antd";
-import { Children, createElement } from "react";
 const { Header, Content, Footer, Sider } = Layout;
 import siteLogo from "../../assets/images/logo100.png";
 import { Outlet } from "react-router";
-const items: MenuProps["items"] = [
-  {
-    key: "hareKrishna1",
-    label: "Dashboard",
-  },
-  {
-    key: "hareKrishna2",
-    label: "Profile",
-  },
-  {
-    key: "hareKrishna3",
-    label: "User Management",
-    children: [
-      {
-        key: "hareKrishna31",
-        label: "Create Admin",
-      },
-      {
-        key: "hareKrishna32",
-        label: "Create User",
-      },
-    ],
-  },
-];
+import { adminNavItems } from "../../routes/admin.routes";
+import { facultyNavItems } from "../../routes/faculty.routes";
+import { studentNavItems } from "../../routes/student.routes";
+
 
 const MainLayout = () => {
   return (
@@ -63,7 +37,7 @@ const MainLayout = () => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["4"]}
-          items={items}
+          items={adminNavItems}
         />
       </Sider>
       <Layout>
