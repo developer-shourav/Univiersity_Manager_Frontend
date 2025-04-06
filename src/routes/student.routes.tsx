@@ -1,27 +1,32 @@
-import AdminDashboard from "../pages/admin/AdminDashboard";
-import CreateAdmin from "../pages/admin/CreateAdmin";
-import CreateFaculty from "../pages/admin/CreateFaculty";
-import CreateStudent from "../pages/admin/CreateStudent";
+import StudentDashboard from "../pages/student/StudentDashboard";
+import StudentEnroll from "../pages/student/StudentEnroll";
+import StudentGetResult from "../pages/student/StudentGetResult";
+import { TRouteAndNavItemList } from "../types";
+import navItemListConvertor from "../utils/navItemListConvertor";
+import routeListConvertor from "../utils/routeListConvertor";
 
-export const studentPaths = [
+export const studentPaths: TRouteAndNavItemList[] = [
   {
-    index: true,
-    element: <AdminDashboard />,
-  },
-  {
+    name: "Dashboard",
     path: "dashboard",
-    element: <AdminDashboard />,
+    element: <StudentDashboard />,
   },
   {
-    path: "create-student",
-    element: <CreateStudent />,
-  },
-  {
-    path: "create-faculty",
-    element: <CreateFaculty />,
-  },
-  {
-    path: "create-admin",
-    element: <CreateAdmin />,
+    name: "Student Management",
+    children: [
+      {
+        name: "Student Enroll",
+        path: "enroll-student",
+        element: <StudentEnroll />,
+      },
+      {
+        name: "Student Result",
+        path: "get-result",
+        element: <StudentGetResult />,
+      },
+    ],
   },
 ];
+
+export const studentRoutes = routeListConvertor(studentPaths);
+export const studentNavItems = navItemListConvertor(studentPaths, "student");

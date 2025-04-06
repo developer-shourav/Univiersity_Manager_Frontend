@@ -1,27 +1,35 @@
-import AdminDashboard from "../pages/admin/AdminDashboard";
-import CreateAdmin from "../pages/admin/CreateAdmin";
-import CreateFaculty from "../pages/admin/CreateFaculty";
-import CreateStudent from "../pages/admin/CreateStudent";
 
-export const facultyPaths = [
+import CreateStudentByFaculty from "../pages/faculty/CreateStudentByFaculty";
+import FacultyClass from "../pages/faculty/FacultyClass";
+import FacultyDashboard from "../pages/faculty/FacultyDashboard";
+import { TRouteAndNavItemList } from "../types";
+import navItemListConvertor from "../utils/navItemListConvertor";
+import routeListConvertor from "../utils/routeListConvertor";
+
+
+export const facultyPaths: TRouteAndNavItemList[] = [
   {
-    index: true,
-    element: <AdminDashboard />,
-  },
-  {
+    name: "Dashboard",
     path: "dashboard",
-    element: <AdminDashboard />,
+    element: <FacultyDashboard />,
   },
   {
-    path: "create-student",
-    element: <CreateStudent />,
-  },
-  {
-    path: "create-faculty",
-    element: <CreateFaculty />,
-  },
-  {
-    path: "create-admin",
-    element: <CreateAdmin />,
+    name: "Faculty Management",
+    children: [
+      {
+        name: "Create Student By Faculties",
+        path: "create-student",
+        element: <CreateStudentByFaculty/>,
+      },
+      {
+        name: "Faculty Classes",
+        path: "faculty-classes",
+        element: <FacultyClass />,
+      },
+      
+    ],
   },
 ];
+
+export const facultyRoutes = routeListConvertor(facultyPaths);
+export const facultyNavItems = navItemListConvertor(facultyPaths, "faculty");

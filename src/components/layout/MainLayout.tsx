@@ -3,6 +3,8 @@ const { Header, Content, Footer, Sider } = Layout;
 import siteLogo from "../../assets/images/logo100.png";
 import { Outlet } from "react-router";
 import { adminNavItems } from "../../routes/admin.routes";
+import { facultyNavItems } from "../../routes/faculty.routes";
+import { studentNavItems } from "../../routes/student.routes";
 
 
 const MainLayout = () => {
