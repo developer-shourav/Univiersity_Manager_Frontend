@@ -40,5 +40,4 @@ export const adminPaths: TRouteAndNavItemList[] = [
 ];
 
 export const adminRoutes = routeListConvertor(adminPaths);
-
 export const adminNavItems = navItemListConvertor(adminPaths, 'admin');
