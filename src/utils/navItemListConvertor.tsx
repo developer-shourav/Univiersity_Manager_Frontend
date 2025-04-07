@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { TNavItem, TRouteAndNavItemList } from "../types";
 
-const navItemListConvertor = (rawList: TRouteAndNavItemList[], rootPath: string) => {
+const navItemListConvertor = (rawList: TRouteAndNavItemList[], role: string) => {
 
   const navItemList = rawList.reduce((acc: TNavItem[], item) => {
     if ('path' in item &&  'name' in item) {
       acc.push({
         key: item.name,
-        label: <NavLink to={`/${rootPath}/${item.path}`}> {item.name} </NavLink>,
+        label: <NavLink to={`/${role}/${item.path}`}> {item.name} </NavLink>,
       });
     }
     if ('children' in item) {
@@ -17,7 +17,7 @@ const navItemListConvertor = (rawList: TRouteAndNavItemList[], rootPath: string)
         children: item.children.map((childItem) => ({
           key: childItem.name,
           label: (
-            <NavLink to={`/${rootPath}/${childItem.path}`}>
+            <NavLink to={`/${role}/${childItem.path}`}>
               {" "}
               {childItem.name}{" "}
             </NavLink>
