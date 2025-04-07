@@ -5,6 +5,7 @@ import FacultyDashboard from "../pages/faculty/FacultyDashboard";
 import { TRouteAndNavItemList } from "../types";
 import navItemListConvertor from "../utils/navItemListConvertor";
 import routeListConvertor from "../utils/routeListConvertor";
+import { userRole } from "../utils/utils.constant";
 
 
 export const facultyPaths: TRouteAndNavItemList[] = [
@@ -32,4 +33,4 @@ export const facultyPaths: TRouteAndNavItemList[] = [
 ];
 
 export const facultyRoutes = routeListConvertor(facultyPaths);
-export const facultyNavItems = navItemListConvertor(facultyPaths, "faculty");
+export const facultyNavItems = navItemListConvertor(facultyPaths, userRole.FACULTY);

@@ -4,6 +4,7 @@ import StudentGetResult from "../pages/student/StudentGetResult";
 import { TRouteAndNavItemList } from "../types";
 import navItemListConvertor from "../utils/navItemListConvertor";
 import routeListConvertor from "../utils/routeListConvertor";
+import { userRole } from "../utils/utils.constant";
 
 export const studentPaths: TRouteAndNavItemList[] = [
   {
@@ -29,4 +30,4 @@ export const studentPaths: TRouteAndNavItemList[] = [
 ];
 
 export const studentRoutes = routeListConvertor(studentPaths);
-export const studentNavItems = navItemListConvertor(studentPaths, "student");
+export const studentNavItems = navItemListConvertor(studentPaths, userRole.STUDENT);

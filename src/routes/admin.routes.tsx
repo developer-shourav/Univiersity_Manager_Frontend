@@ -5,6 +5,7 @@ import CreateStudent from "../pages/admin/CreateStudent";
 import { TRouteAndNavItemList } from "../types";
 import routeListConvertor from "../utils/routeListConvertor";
 import navItemListConvertor from "../utils/navItemListConvertor";
+import { userRole } from "../utils/utils.constant";
 
 export const adminPaths: TRouteAndNavItemList[] = [
   {
@@ -40,4 +41,4 @@ export const adminPaths: TRouteAndNavItemList[] = [
 ];
 
 export const adminRoutes = routeListConvertor(adminPaths);
-export const adminNavItems = navItemListConvertor(adminPaths, "admin");
+export const adminNavItems = navItemListConvertor(adminPaths, userRole.ADMIN);
