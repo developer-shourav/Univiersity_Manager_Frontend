@@ -1,11 +1,36 @@
-import React from 'react';
+import { Button } from "antd";
+import { useForm } from "react-hook-form";
+import { useLoginMutation } from "../redux/features/auth/authApi";
 
 const Login = () => {
-    return (
-        <div>
-            <h1>This is login page</h1>
-        </div>
-    );
+  const { register, handleSubmit } = useForm();
+  const [loginUser, { data, error }] = useLoginMutation();
+
+  console.log("Data =>", data);
+  console.log("Error =>", error);
+
+  const onSubmit = (data) => {
+    const userInfo = {
+      id: data.userId,
+      password: data.password,
+    };
+
+    loginUser(userInfo);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <label htmlFor="id">ID: </label>
+        <input type="text" id="id" {...register("userId")} />
+      </div>
+      <div>
+        <label htmlFor="password">Password: </label>
+        <input type="text" id="password" {...register("password")} />
+      </div>
+      <Button htmlType="submit">Login</Button>
+    </form>
+  );
 };
 
 export default Login;
