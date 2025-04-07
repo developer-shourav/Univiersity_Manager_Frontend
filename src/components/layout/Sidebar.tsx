@@ -5,12 +5,14 @@ import { adminNavItems } from "../../routes/admin.routes";
 import { facultyNavItems } from "../../routes/faculty.routes";
 import { studentNavItems } from "../../routes/student.routes";
 import { userRole } from "../../utils/utils.constant";
+import { useAppSelector } from "../../redux/hooks";
+import { selectCurrentUser } from "../../redux/features/auth/authSlice";
 
 const Sidebar = () => {
-  const role = "admin";
+  const user = useAppSelector(selectCurrentUser);
   let sidebarItems;
 
-  switch (role) {
+  switch (user!.role) {
     case userRole.ADMIN:
       sidebarItems = adminNavItems;
       break;

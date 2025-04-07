@@ -6,12 +6,23 @@ import { TRouteAndNavItemList } from "../types";
 import routeListConvertor from "../utils/routeListConvertor";
 import navItemListConvertor from "../utils/navItemListConvertor";
 import { userRole } from "../utils/utils.constant";
+import AcademicSemester from "../pages/admin/academicManagement/academicSemester";
 
 export const adminPaths: TRouteAndNavItemList[] = [
   {
     name: "Dashboard",
     path: "dashboard",
     element: <AdminDashboard />,
+  },
+  {
+    name: "Academic Management",
+    children: [
+      {
+        name: "Academic Semester",
+        path: "academic-semester",
+        element: <AcademicSemester />,
+      },
+    ],
   },
   {
     name: "User Management",
